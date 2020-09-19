@@ -7,9 +7,8 @@ services:
         args:
           - USER_ID=${USER_ID}
           - USER_PW=${USER_PW}
-    image: alpine-local-build:latest # image tag
-    container_name: local_sshd_alpine
-    # privileged: true  # access privileges
+    image: dind:1.0
+    container_name: docker-in-docker
     ports:
       - "${PORT}:22"  # ssh port
     working_dir: /docker

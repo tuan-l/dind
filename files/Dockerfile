@@ -1,7 +1,7 @@
 FROM node:alpine
 
 WORKDIR /app
-COPY package.json yarn.lock /app/
+COPY ./app/package.json ./app/yarn.lock /app/
 COPY ./server.sh /app/
 RUN chmod +x ./server.sh
 RUN yarn install
