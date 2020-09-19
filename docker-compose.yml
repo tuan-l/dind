@@ -1,13 +1,7 @@
 version: "3"
 services:
   dind:
-    build:
-        context: .  # ./ubuntu
-        dockerfile: ./Dockerfile
-        args:
-          - USER_ID=${USER_ID}
-          - USER_PW=${USER_PW}
-    image: dind:1.0
+    image: docker.pkg.github.com/tuan-l/dind/dind:1.0
     container_name: docker-in-docker
     ports:
       - "${PORT}:22"  # ssh port

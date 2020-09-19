@@ -35,10 +35,26 @@ these are username and password for the user you will use to manipulate with the
 
 ## Experiment
 
+If you want to run the experiment right away, modify `docker-compose.yml` file with following settings:
+
+```bash
+version: "3"
+services:
+  dind:
+    image: docker.pkg.github.com/tuan-l/dind/dind:1.0
+    container_name: docker-in-docker
+    ports:
+      - "${PORT}:22"  # ssh port
+    working_dir: /workspace
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./files:/workspace/"
+```
+
 Run the following commands to build and run the experiment:
 
 ```bash
-docker-compose up --build
+docker-compose up
 ```
 
 SSH into main container by the following commands:

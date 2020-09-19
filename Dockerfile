@@ -47,7 +47,7 @@ RUN ssh-keygen -q -t rsa -N '' -f ~/.ssh/id_rsa
 
 ## Working directory
 USER root
-WORKDIR /docker
+WORKDIR /workspace
 RUN ssh-keygen -A
 # RUN /etc/init.d/ssh start
 
