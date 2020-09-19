@@ -1,0 +1,19 @@
+version: "3"
+services:
+  nextapp:
+    build: .
+    image: nextapp
+    container_name: nextapp
+    # volumes:
+    #   - node_modules:/app/node_modules
+    #   - next:/app/.next
+    #   - ./:/app/
+    environment:
+      - PRODUCTION=${PRODUCTION}  # true for production builds otherwise false
+    command: >
+      /bin/sh -c "./server.sh"
+    ports:
+      - 3000:3000
+volumes:
+  node_modules:
+  next:

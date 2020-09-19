@@ -1,0 +1,18 @@
+version: "3"
+services:
+  dind:
+    build:
+        context: .  # ./ubuntu
+        dockerfile: ./Dockerfile
+        args:
+          - USER_ID=${USER_ID}
+          - USER_PW=${USER_PW}
+    image: alpine-local-build:latest # image tag
+    container_name: local_sshd_alpine
+    # privileged: true  # access privileges
+    ports:
+      - "${PORT}:22"  # ssh port
+    working_dir: /docker
+    volumes:
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "./files:/workspace/"
